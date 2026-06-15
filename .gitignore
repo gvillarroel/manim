@@ -10,3 +10,11 @@ venv/
 media/
 videos/spikes/**/media/
 videos/spikes/**/renders/
+videos/spikes/**/render.*.log
+*.mp4
+*.mov
+*.m4v
+*.webm
+*.mkv
+*.avi
+*.wmv
