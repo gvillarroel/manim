@@ -1,0 +1,1 @@
+"""Reusable approved Manim components."""

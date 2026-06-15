@@ -1,0 +1,4 @@
+interface:
+  display_name: "Scene Script Planner"
+  short_description: "Plan research-backed Manim scene scripts"
+  default_prompt: "Use $scene-script-planner to plan a concise Manim scene script from research notes."

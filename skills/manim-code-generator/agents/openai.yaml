@@ -1,0 +1,4 @@
+interface:
+  display_name: "Manim Code Generator"
+  short_description: "Generate reusable Manim video code"
+  default_prompt: "Use $manim-code-generator to turn an approved scene script into Manim Python code."
