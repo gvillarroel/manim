@@ -74,16 +74,16 @@ class AIConceptScene(Scene):
         self.wait(1.7)
 
         equation = self._equation_beat(data, accent, hook)
-        self.wait(2.0)
+        self.wait(3.0)
 
         mechanism = self._mechanism_beat(data, accent, equation)
-        self.wait(1.0)
+        self.wait(2.0)
 
         consequence = self._consequence_beat(data, accent, mechanism)
-        self.wait(1.0)
+        self.wait(2.0)
 
         recap = self._recap_beat(data, accent, consequence)
-        self.wait(2.0)
+        self.wait(5.0)
         self.play(FadeOut(VGroup(header, recap), shift=UP * 0.08), run_time=0.9)
 
     def _header(self, data: dict, accent: str) -> VGroup:
@@ -282,8 +282,16 @@ class AIConceptScene(Scene):
         return VGroup(line, text)
 
     def _orbit_map(self, data: dict, accent: str) -> VGroup:
-        center = Circle(radius=0.82, stroke_color=accent, stroke_width=3, fill_color=PANEL, fill_opacity=1)
-        title = fitted_text(data["title"].replace("?", ""), font_size=22, color=TEXT, max_width=2.1, max_lines=2, line_chars=18)
+        center = panel_frame(2.45, 1.12, color=accent, fill=PANEL)
+        title_copy = (
+            data["title"]
+            .replace("What is an ", "")
+            .replace("What is a ", "")
+            .replace("?", "")
+        )
+        if title_copy == data["title"].replace("?", "") and len(title_copy) > 18:
+            title_copy = title_copy.replace(" and ", "\n")
+        title = fitted_text(title_copy, font_size=22, color=TEXT, max_width=2.05, max_lines=2, line_chars=18)
         center_group = VGroup(center, title.move_to(center))
         nodes = VGroup()
         edges = VGroup()
